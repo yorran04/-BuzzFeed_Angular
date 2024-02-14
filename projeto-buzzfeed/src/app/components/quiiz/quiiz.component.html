@@ -1,0 +1,26 @@
+<div class="quizz_container">
+
+    <div class="quizz_logo">
+       <img class="img_logo" src="https://www.pngall.com/wp-content/uploads/15/Buzzfeed-Logo-PNG-File.png" alt="">
+        <h3>{{ title }}</h3>
+    </div>  
+
+    <div *ngIf="!final" class="quizz_questions">
+        <h3> {{questionSelected.question }} </h3>
+    </div>
+
+    <div *ngIf="!final" class="quizz_options">
+        <button 
+        *ngFor="let option of questionSelected.options; let i = index"   
+        (click)="playerChoose(option.alias)"  
+        class="btn_option">
+            {{option.name}}
+        </button>
+    </div>
+
+    <div *ngIf="final" class="quizz_results">
+        <h1>O seu recultado é:</h1>
+        <p>{{respostaSelecionada}}</p>
+    </div>
+
+</div>
